@@ -2,7 +2,7 @@
   <header>
     <h1>MealFlix</h1>
     <nav>
-      <router-link to="/comidas">Comidas</router-link> |
+      <router-link to="/">Comidas</router-link> |
       <router-link to="/favoritos">Favoritos</router-link>
     </nav>
     <img src="" alt="" />
@@ -10,10 +10,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
-
 export default {
-  name: "HomeView",
-  components: {},
+  name: "HeaderMenu",
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped></style>
