@@ -8,6 +8,7 @@
       v-model="seachInput"
     />
     <input type="submit" id="submit" value="Buscar" />
+    {{ errMsg }}
   </form>
 </template>
 
@@ -22,10 +23,18 @@ export default {
       seachInput: "",
     };
   },
+
   methods: {
     searchFood() {
-      console.log(this.seachInput);
-      /* if(/[a-c]{2}/.test() ) {console.log("yepi");} */
+      const originalWord = this.seachInput;
+      const reg = /^[a-z]{1}$/;
+      let errMsg = "";
+      if (reg.test(originalWord) == false) {
+        errMsg = "por favor escriba una sóla letra en letra minúscula";
+      } else {
+        console.log("enviar");
+      }
+      return errMsg;
     },
   },
 };
