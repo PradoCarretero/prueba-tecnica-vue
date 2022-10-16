@@ -5,23 +5,17 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    msg: "",
+    errMsg: "",
+    foodList: [],
+    currentFood: null,
   },
   mutations: {
-    addError(state) {
-      state.msg =
-        "Por favor introduczca un carácter válido: una letra minúscula";
-    },
-    deleteError(state) {
-      state.msg = "";
-    },
+    ADD_ERROR: (state) =>
+      (state.errMsg =
+        "Por favor introduczca un carácter válido: una letra minúscula"),
+    DELETE_ERROR: (state) => (state.errMsg = ""),
+    LOAD_AUTHOR: (state, payload) => (state.author = payload),
+    LOAD_BOOKS: (state, payload) => (state.books = payload),
   },
-  actions: {
-    addErrorAction(context) {
-      context.commit("addError");
-    },
-    deleteErrorAction(context) {
-      context.commit("deleteError");
-    },
-  },
+  actions: {},
 });

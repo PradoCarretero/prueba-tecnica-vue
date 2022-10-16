@@ -10,7 +10,7 @@
       />
       <input type="submit" id="submit" value="Buscar" />
     </form>
-    <p>{{ $store.state.msg }}</p>
+    <p>{{ $store.state.errMsg }}</p>
   </main>
 </template>
 
@@ -31,9 +31,9 @@ export default {
       const originalWord = this.seachInput;
       const reg = /^[a-z]{1}$/;
       if (reg.test(originalWord) == false) {
-        this.$store.commit("addError");
+        this.$store.commit("ADD_ERROR");
       } else {
-        this.$store.commit("deleteError");
+        this.$store.commit("DELETE_ERROR");
       }
     },
   },
