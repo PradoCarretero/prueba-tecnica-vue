@@ -5,6 +5,23 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    msg: "Vuex desde 0",
+    msg: "",
+  },
+  mutations: {
+    addError(state) {
+      state.msg =
+        "Por favor introduczca un carácter válido: una letra minúscula";
+    },
+    deleteError(state) {
+      state.msg = "";
+    },
+  },
+  actions: {
+    addErrorAction(context) {
+      context.commit("addError");
+    },
+    deleteErrorAction(context) {
+      context.commit("deleteError");
+    },
   },
 });

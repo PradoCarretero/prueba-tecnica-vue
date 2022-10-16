@@ -30,12 +30,11 @@ export default {
     searchFood() {
       const originalWord = this.seachInput;
       const reg = /^[a-z]{1}$/;
-      /* let errMsg = "" */ if (reg.test(originalWord) == false) {
-        /*  errMsg = "por favor escriba una sóla letra en letra minúscula"; */
+      if (reg.test(originalWord) == false) {
+        this.$store.commit("addError");
       } else {
-        console.log("enviar");
+        this.$store.commit("deleteError");
       }
-      /*  return errMsg; */
     },
   },
 };
