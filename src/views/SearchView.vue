@@ -1,15 +1,17 @@
 <template>
-  <form action="search" v-on:submit.prevent="searchFood">
-    <input
-      type="text"
-      placeholder="Buscar comida..."
-      id="seachInput"
-      name="seachInput"
-      v-model="seachInput"
-    />
-    <input type="submit" id="submit" value="Buscar" />
-    {{ errMsg }}
-  </form>
+  <main>
+    <form action="search" v-on:submit.prevent="searchFood">
+      <input
+        type="text"
+        placeholder="Buscar comida..."
+        id="seachInput"
+        name="seachInput"
+        v-model="seachInput"
+      />
+      <input type="submit" id="submit" value="Buscar" />
+    </form>
+    <p>{{ $store.state.msg }}</p>
+  </main>
 </template>
 
 <script>
@@ -28,13 +30,12 @@ export default {
     searchFood() {
       const originalWord = this.seachInput;
       const reg = /^[a-z]{1}$/;
-      let errMsg = "";
-      if (reg.test(originalWord) == false) {
-        errMsg = "por favor escriba una sóla letra en letra minúscula";
+      /* let errMsg = "" */ if (reg.test(originalWord) == false) {
+        /*  errMsg = "por favor escriba una sóla letra en letra minúscula"; */
       } else {
         console.log("enviar");
       }
-      return errMsg;
+      /*  return errMsg; */
     },
   },
 };
