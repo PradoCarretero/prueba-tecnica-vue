@@ -2,10 +2,8 @@
   <header>
     <h1>MealFlix</h1>
     <nav>
-      <ul>
-        <li>Comidas</li>
-        <li>Favoritos</li>
-      </ul>
+      <router-link to="/comidas">Comidas</router-link> |
+      <router-link to="/favoritos">Favoritos</router-link>
     </nav>
     <img src="" alt="" />
   </header>
