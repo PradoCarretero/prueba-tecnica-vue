@@ -4,9 +4,9 @@
       <input
         type="text"
         placeholder="Buscar comida..."
-        id="seachInput"
-        name="seachInput"
-        v-model="seachInput"
+        id="searchInput"
+        name="searchInput"
+        v-model="searchValue"
       />
       <input type="submit" id="submit" value="Buscar" />
     </form>
@@ -22,18 +22,24 @@ export default {
   components: {},
   data: function () {
     return {
-      seachInput: "",
+      searchValue: "",
     };
   },
 
   methods: {
     searchFood() {
-      const originalWord = this.seachInput;
+      const searchValue = this.searchValue;
       const reg = /^[a-z]{1}$/;
-      if (reg.test(originalWord) == false) {
-        this.$store.commit("ADD_ERROR");
+      if (reg.test(searchValue) == false) {
+        this.$store.commit(
+          "setErrorMsg",
+          "Por favor introduczca un carácter válido: una letra minúscula"
+        );
+        this.$store.commit("setFoodList", []);
       } else {
-        this.$store.commit("DELETE_ERROR");
+        this.$store.commit("setErrorMsg", "");
+        this.$store.commit("setsearchValue", searchValue);
+        this.$store.dispatch("getBooks", searchValue);
       }
     },
   },
