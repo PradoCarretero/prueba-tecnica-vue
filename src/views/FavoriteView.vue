@@ -1,5 +1,3 @@
 <template>
-  <div class="about">
-    <h1>This is favorite</h1>
-  </div>
+  <h1></h1>
 </template>

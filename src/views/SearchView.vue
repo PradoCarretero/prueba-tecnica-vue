@@ -1,47 +1,22 @@
 <template>
   <main>
-    <form action="search" v-on:submit.prevent="searchFood">
-      <input
-        type="text"
-        placeholder="Buscar comida..."
-        id="searchInput"
-        name="searchInput"
-        v-model="searchValue"
-      />
-      <input type="submit" id="submit" value="Buscar" />
-    </form>
-    <p>{{ $store.state.errMsg }}</p>
+    <SearchPannel />
+    <FoodList />
   </main>
 </template>
 
 <script>
 // @ is an alias to /src
+import SearchPannel from "../components/SearchPannel.vue";
+import FoodList from "../components/FoodList.vue";
 
 export default {
   name: "SearchView",
-  components: {},
+  components: { SearchPannel, FoodList },
   data: function () {
-    return {
-      searchValue: "",
-    };
+    return {};
   },
 
-  methods: {
-    searchFood() {
-      const searchValue = this.searchValue;
-      const reg = /^[a-z]{1}$/;
-      if (reg.test(searchValue) == false) {
-        this.$store.commit(
-          "setErrorMsg",
-          "Por favor introduczca un carácter válido: una letra minúscula"
-        );
-        this.$store.commit("setFoodList", []);
-      } else {
-        this.$store.commit("setErrorMsg", "");
-        this.$store.commit("setsearchValue", searchValue);
-        this.$store.dispatch("getBooks", searchValue);
-      }
-    },
-  },
+  methods: {},
 };
 </script>
