@@ -4,8 +4,12 @@
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
       <i class="fa-regular fa-eye"></i>
-      <i v-on:click="removeFavorite(item)" class="fa-solid fa-heart"></i>
-      <i v-on:click="addFavorite(item)" class="fa-regular fa-heart"></i>
+      <i
+        v-if="favorites.has(item.idMeal)"
+        v-on:click="removeFavorite(item)"
+        class="fa-solid fa-heart"
+      ></i>
+      <i v-else v-on:click="addFavorite(item)" class="fa-regular fa-heart"></i>
       <img class="img" :src="item.strMealThumb" />
     </li>
   </ul>
@@ -29,9 +33,6 @@ export default {
     result() {
       return this.$store.state.result;
     },
-    isFavorite(item) {
-      return this.$store.state.favorites.has(item.idMeal) ? "True" : "False";
-    },
   },
   components: {},
   data: function () {
@@ -39,22 +40,11 @@ export default {
   },
 
   methods: {
-    /*   toggleIsFav: function (selectedItem) {
-      const newFoodList = [...this.$store.state.foodList];
-      const selectedItemId = selectedItem.idMeal;
-      const foundMeal = newFoodList.find(
-        (meal) => meal.idMeal === selectedItemId
-      );
-      foundMeal.isFav = !foundMeal.isFav;
-      this.$store.commit("setFoodList", newFoodList);
-    }, */
     addFavorite(item) {
       this.$store.state.favorites.set(item.idMeal, item);
-      console.log(this.$store.state.favorites);
     },
     removeFavorite(item) {
       this.$store.state.favorites.delete(item.idMeal);
-      console.log(this.$store.state.favorites);
     },
   },
 };

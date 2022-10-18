@@ -35,10 +35,12 @@ export default {
       if (!isSucessfull) {
         this.errMsg =
           "Por favor introduczca un carácter válido: una letra minúscula";
+
         this.$store.commit("setFoodList", []);
       } else {
         this.errMsg = null;
         this.$store.dispatch("getBooks", searchValue);
+        this.searchValue = null;
       }
     },
   },

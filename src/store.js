@@ -7,8 +7,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     foodList: [],
-    currentMeal: null,
     favorites: new Map(),
+    currentMeal: null,
     result: null,
   },
   mutations: {
