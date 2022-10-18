@@ -6,19 +6,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    errMsg: "",
     foodList: [],
     currentMeal: null,
-    /*  searchValue: null, */
     favorites: new Map(),
   },
   mutations: {
-    setErrorMsg(state, playload) {
-      state.errMsg = playload;
-    },
-    /*    setSearchValue(state, playload) {
-      state.searchValue = playload;
-    }, */
     setFoodList(state, playload) {
       state.foodList = playload;
     },

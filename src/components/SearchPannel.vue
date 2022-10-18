@@ -10,7 +10,7 @@
       />
       <input type="submit" id="submit" value="Buscar" />
     </form>
-    <p>{{ $store.state.errMsg }}</p>
+    <p>{{ errMsg }}</p>
   </div>
 </template>
 
@@ -23,6 +23,7 @@ export default {
   data: function () {
     return {
       searchValue: null,
+      errMsg: null,
     };
   },
 
@@ -32,13 +33,11 @@ export default {
       const reg = /^[a-z]{1}$/;
       const isSucessfull = reg.test(searchValue);
       if (!isSucessfull) {
-        this.$store.commit(
-          "setErrorMsg",
-          "Por favor introduczca un carácter válido: una letra minúscula"
-        );
+        this.errMsg =
+          "Por favor introduczca un carácter válido: una letra minúscula";
         this.$store.commit("setFoodList", []);
       } else {
-        this.$store.commit("setErrorMsg", "");
+        this.errMsg = null;
         this.$store.dispatch("getBooks", searchValue);
       }
     },
