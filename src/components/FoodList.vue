@@ -1,10 +1,9 @@
 <template>
-  <ul>
+  <ul v-if="result">
     <li v-for="(item, index) in foodList" :key="index">
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
       <i class="fa-regular fa-eye"></i>
-
       <i v-on:click="removeFavorite(item)" class="fa-solid fa-heart"></i>
       <i v-on:click="addFavorite(item)" class="fa-regular fa-heart"></i>
       <img class="img" :src="item.strMealThumb" />
@@ -26,6 +25,9 @@ export default {
     },
     favorites() {
       return this.$store.state.favorites;
+    },
+    result() {
+      return this.$store.state.result;
     },
     isFavorite(item) {
       return this.$store.state.favorites.has(item.idMeal) ? "True" : "False";

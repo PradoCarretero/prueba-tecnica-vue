@@ -9,6 +9,7 @@ export default new Vuex.Store({
     foodList: [],
     currentMeal: null,
     favorites: new Map(),
+    result: null,
   },
   mutations: {
     setFoodList(state, playload) {
@@ -24,6 +25,7 @@ export default new Vuex.Store({
         const response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${playload}`
         );
+        this.state.result = true;
         const dataClean = response.data.meals.map((item) => {
           return {
             idMeal: item.idMeal,
