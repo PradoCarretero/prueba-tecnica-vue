@@ -3,7 +3,7 @@
     <li v-for="(item, index) in foodList" :key="index">
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
-      <img class="img" alt="item.strMeal" :src="item.strMealThumb" />
+      <img class="img" :src="item.strMealThumb" />
     </li>
   </ul>
 </template>
