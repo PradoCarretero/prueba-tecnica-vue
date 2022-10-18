@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     errMsg: "",
     foodList: [],
+    currentMeal: null,
     searchValue: "",
   },
   mutations: {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     setFoodList(state, playload) {
       state.foodList = playload;
     },
+    setFoodFav(state, playload) {
+      state.foodList = [...state.foodList, playload];
+    },
   },
   actions: {
     async getBooks({ state, commit }) {
@@ -29,6 +33,7 @@ export default new Vuex.Store({
         );
         const dataClean = response.data.meals.map((item) => {
           return {
+            idMeal: item.idMeal,
             strMeal: item.strMeal,
             strCategory: item.strCategory,
             strMealThumb: item.strMealThumb,
@@ -36,7 +41,6 @@ export default new Vuex.Store({
           };
         });
         commit("setFoodList", dataClean);
-        console.log(dataClean);
       } catch (err) {
         commit("setFoodList", []);
         alert(err.message);
