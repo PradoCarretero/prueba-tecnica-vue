@@ -6,11 +6,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    searchValue: "",
     errMsg: "",
     foodList: [],
-    currentMeal: null,
-    searchValue: "",
+    favList: [],
+    isFav: false,
   },
+
+  /*   getters: {
+    isFav(state,playload) {
+      return state.favList=playload;
+    }
+  }, */
   mutations: {
     setErrorMsg(state, playload) {
       state.errMsg = playload;
@@ -21,8 +28,11 @@ export default new Vuex.Store({
     setFoodList(state, playload) {
       state.foodList = playload;
     },
-    setFoodFav(state, playload) {
-      state.foodList = [...state.foodList, playload];
+    setFavList(state, playload) {
+      state.favList = playload;
+    },
+    setIsFav(state, playload) {
+      state.isFav = playload;
     },
   },
   actions: {

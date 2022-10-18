@@ -4,7 +4,7 @@
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
       <i class="fa-regular fa-eye"></i>
-      <i v-on:click="toggleIsFav(item)" class="fa-regular fa-heart"></i>
+      <i v-on:click="toggleIsFav()" class="fa-regular fa-heart"></i>
       <img class="img" :src="item.strMealThumb" />
     </li>
   </ul>
@@ -29,14 +29,8 @@ export default {
   },
 
   methods: {
-    toggleIsFav: function (selectedItem) {
-      const newFoodList = [...this.$store.state.foodList];
-      const selectedItemId = selectedItem.idMeal;
-      const foundMeal = newFoodList.find(
-        (meal) => meal.idMeal === selectedItemId
-      );
-      foundMeal.isFav = !foundMeal.isFav;
-      this.$store.commit("setFoodList", newFoodList);
+    toggleIsFav: function () {
+      console.log(this);
     },
   },
 };

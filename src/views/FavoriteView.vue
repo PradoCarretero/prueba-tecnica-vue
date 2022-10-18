@@ -15,6 +15,12 @@ export default {
     return {};
   },
 
-  methods: {},
+  methods: {
+    showIsFav: function () {
+      /* const foodList = this.$store.state.foodList;
+      const foodListFav = foodList.filter((meal) => meal.isFav); */
+      console.log("foodListFav");
+    },
+  },
 };
 </script>
