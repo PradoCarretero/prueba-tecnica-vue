@@ -27,11 +27,11 @@ export default new Vuex.Store({
         const response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${state.searchValue}`
         );
-        const dataClean = response.data.meals.map((meal) => {
+        const dataClean = response.data.meals.map((item) => {
           return {
-            strMeal: meal.strMeal,
-            strCategory: meal.strCategory,
-            strMealThumb: meal.strMealThumb,
+            strMeal: item.strMeal,
+            strCategory: item.strCategory,
+            strMealThumb: item.strMealThumb,
             isFav: false,
           };
         });
