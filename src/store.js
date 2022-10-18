@@ -10,6 +10,7 @@ export default new Vuex.Store({
     foodList: [],
     currentMeal: null,
     searchValue: "",
+    favorites: new Map(),
   },
   mutations: {
     setErrorMsg(state, playload) {

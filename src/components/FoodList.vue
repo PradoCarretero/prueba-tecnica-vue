@@ -4,7 +4,7 @@
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
       <i class="fa-regular fa-eye"></i>
-      <i v-on:click="toggleIsFav(item)" class="fa-regular fa-heart"></i>
+      <i v-on:click="addFavorite(item)" class="fa-regular fa-heart"></i>
       <img class="img" :src="item.strMealThumb" />
     </li>
   </ul>
@@ -37,6 +37,10 @@ export default {
       );
       foundMeal.isFav = !foundMeal.isFav;
       this.$store.commit("setFoodList", newFoodList);
+    },
+    addFavorite(item) {
+      this.$store.state.favorites.set(item.idMeal, item);
+      console.log(this.$store.state.favorites);
     },
   },
 };
