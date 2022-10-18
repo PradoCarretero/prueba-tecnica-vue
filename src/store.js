@@ -9,16 +9,16 @@ export default new Vuex.Store({
     errMsg: "",
     foodList: [],
     currentMeal: null,
-    searchValue: "",
+    /*  searchValue: null, */
     favorites: new Map(),
   },
   mutations: {
     setErrorMsg(state, playload) {
       state.errMsg = playload;
     },
-    setsearchValue(state, playload) {
+    /*    setSearchValue(state, playload) {
       state.searchValue = playload;
-    },
+    }, */
     setFoodList(state, playload) {
       state.foodList = playload;
     },
@@ -27,10 +27,10 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async getBooks({ state, commit }) {
+    async getBooks({ commit }, playload) {
       try {
         const response = await axios.get(
-          `https://www.themealdb.com/api/json/v1/1/search.php?f=${state.searchValue}`
+          `https://www.themealdb.com/api/json/v1/1/search.php?f=${playload}`
         );
         const dataClean = response.data.meals.map((item) => {
           return {

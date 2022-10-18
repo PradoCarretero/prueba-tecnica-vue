@@ -22,7 +22,7 @@ export default {
   components: {},
   data: function () {
     return {
-      searchValue: "",
+      searchValue: null,
     };
   },
 
@@ -39,7 +39,6 @@ export default {
         this.$store.commit("setFoodList", []);
       } else {
         this.$store.commit("setErrorMsg", "");
-        this.$store.commit("setsearchValue", searchValue);
         this.$store.dispatch("getBooks", searchValue);
       }
     },
