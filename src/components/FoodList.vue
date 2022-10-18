@@ -1,10 +1,6 @@
 <template>
   <ul>
-    <li
-      :class="{ active: currentMeal !== null && currentMeal == item }"
-      v-for="(item, index) in foodList"
-      :key="index"
-    >
+    <li v-for="(item, index) in foodList" :key="index">
       <h3>{{ item.strMeal }}</h3>
       <p>{{ item.strCategory }}</p>
       <i class="fa-regular fa-eye"></i>
