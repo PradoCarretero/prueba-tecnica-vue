@@ -27,8 +27,16 @@ export default new Vuex.Store({
         const response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${state.searchValue}`
         );
-        commit("setFoodList", response.data.meals);
-        console.log(response.data);
+        const dataClean = response.data.meals.map((meal) => {
+          return {
+            strMeal: meal.strMeal,
+            strCategory: meal.strCategory,
+            strMealThumb: meal.strMealThumb,
+            isFav: false,
+          };
+        });
+        commit("setFoodList", dataClean);
+        console.log(dataClean);
       } catch (err) {
         commit("setFoodList", []);
         alert(err.message);
