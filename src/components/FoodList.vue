@@ -1,20 +1,30 @@
 <template>
-  <ul v-if="result">
-    <li v-for="(item, index) in foodList" :key="index">
-      <h3>{{ item.strMeal }}</h3>
-      <p>{{ item.strCategory }}</p>
-      <i class="fa-regular fa-eye"></i>
-      <i
-        v-if="favorites.has(item.idMeal)"
-        v-on:click="removeFavorite(item)"
-        class="fa-solid fa-heart"
-      ></i>
-      <i
-        v-else
-        v-on:click="addFavoriteItem(item)"
-        class="fa-regular fa-heart"
-      ></i>
-      <img class="img" :src="item.strMealThumb" />
+  <ul v-if="result" class="grid grid-cols-12 gap-5 w-3/4">
+    <li
+      class="border rounded-lg"
+      v-for="(item, index) in foodList"
+      :key="index"
+    >
+      <section class="h-1/12">
+        <img class="w-fit" :src="item.strMealThumb" />
+        <p>{{ item.strCategory }}</p>
+      </section>
+      <section class="flex">
+        <h3>{{ item.strMeal }}</h3>
+        <div>
+          <i class="fa-regular fa-eye"></i>
+          <i
+            v-if="favorites.has(item.idMeal)"
+            v-on:click="removeFavorite(item)"
+            class="fa-solid fa-heart"
+          ></i>
+          <i
+            v-else
+            v-on:click="addFavoriteItem(item)"
+            class="fa-regular fa-heart"
+          ></i>
+        </div>
+      </section>
     </li>
   </ul>
 </template>
@@ -52,8 +62,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.img {
-  width: 100px;
-}
-</style>
+<style scoped></style>

@@ -1,5 +1,7 @@
 <template>
-  <header class="container mx-auto flex justify-between items-center my-4">
+  <header
+    class="w-11/12 mx-auto flex justify-between items-center py-4 border-b-2 border-dotted"
+  >
     <section>
       <router-link to="/">
         <img src="../assets/logo.png" alt="" width="90px" />
