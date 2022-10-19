@@ -1,7 +1,7 @@
 <template>
   <main>
-    <h2 v-for="(favCategories, index) in allFavCategories" :key="index">
-      {{ favCategories }}
+    <h2 v-for="(favCategorie, index) in allFavCategories" :key="index">
+      {{ favCategorie }}
     </h2>
     <ul>
       <li v-for="(value, index) in favoritesArray" :key="index">

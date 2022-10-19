@@ -14,6 +14,9 @@ export default new Vuex.Store({
     setFoodList(state, playload) {
       state.foodList = playload;
     },
+    addFavorite(state, playload) {
+      state.favorites.set(playload.idMeal, playload);
+    },
   },
   actions: {
     async getBooks({ commit }, playload) {

@@ -9,7 +9,11 @@
         v-on:click="removeFavorite(item)"
         class="fa-solid fa-heart"
       ></i>
-      <i v-else v-on:click="addFavorite(item)" class="fa-regular fa-heart"></i>
+      <i
+        v-else
+        v-on:click="addFavoriteItem(item)"
+        class="fa-regular fa-heart"
+      ></i>
       <img class="img" :src="item.strMealThumb" />
     </li>
   </ul>
@@ -24,6 +28,7 @@ export default {
     foodList() {
       return this.$store.state.foodList;
     },
+
     favorites() {
       return this.$store.state.favorites;
     },
@@ -37,8 +42,8 @@ export default {
   },
 
   methods: {
-    addFavorite(item) {
-      this.$store.state.favorites.set(item.idMeal, item);
+    addFavoriteItem(item) {
+      this.$store.commit("addFavorite", item);
     },
     removeFavorite(item) {
       this.$store.state.favorites.delete(item.idMeal);
