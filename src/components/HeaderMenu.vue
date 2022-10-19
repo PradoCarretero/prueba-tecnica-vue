@@ -1,9 +1,7 @@
 <template>
-  <header class="container mx-auto">
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-    <h1>Hello world!</h1>
-    <section class="container mx-auto">
-      <router-link to="/" class="container mx-auto">
+  <header class="container mx-auto flex justify-between items-center my-4">
+    <section>
+      <router-link to="/">
         <img src="../assets/logo.png" alt="" width="90px" />
       </router-link>
     </section>
