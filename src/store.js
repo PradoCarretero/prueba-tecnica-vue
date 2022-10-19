@@ -8,15 +8,11 @@ export default new Vuex.Store({
   state: {
     foodList: [],
     favorites: new Map(),
-    currentMeal: null,
     result: null,
   },
   mutations: {
     setFoodList(state, playload) {
       state.foodList = playload;
-    },
-    setFoodFav(state, playload) {
-      state.foodList = [...state.foodList, playload];
     },
   },
   actions: {

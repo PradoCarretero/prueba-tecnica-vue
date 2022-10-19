@@ -24,9 +24,6 @@ export default {
     foodList() {
       return this.$store.state.foodList;
     },
-    currentMeal() {
-      return this.$store.state.currentMeal;
-    },
     favorites() {
       return this.$store.state.favorites;
     },
