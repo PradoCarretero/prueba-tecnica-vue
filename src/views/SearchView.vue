@@ -1,7 +1,9 @@
 <template>
-  <main>
+  <main class="mx-96">
     <SearchPannel />
-    <FoodList />
+    <section v-if="result">
+      <FoodList :infoToShow="foodList" />
+    </section>
   </main>
 </template>
 
@@ -13,6 +15,9 @@ import FoodList from "../components/FoodList.vue";
 export default {
   name: "SearchView",
   computed: {
+    foodList() {
+      return this.$store.state.foodList;
+    },
     result() {
       return this.$store.state.result;
     },

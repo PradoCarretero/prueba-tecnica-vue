@@ -6,10 +6,10 @@
       v-on:submit.prevent="searchFood"
     >
       <div
-        class="w-1/2 flex justify-between mt-32 py-2 border-b-2 border-dotted focus:border-sky-500"
+        class="w-full flex justify-between my-32 py-2 border-b-2 border-dotted focus:border-sky-500"
       >
         <input
-          class="w-1/2 py-2 pl-4 pr-3 placeholder:text-slate-250 border-slate-250 focus:outline-none rounded-md focus:ring-sky-500"
+          class="py-2 pl-4 pr-3 placeholder:text-slate-250 border-slate-250 focus:outline-none rounded-md focus:ring-sky-500"
           type="text"
           placeholder="Buscar comida..."
           id="searchInput"

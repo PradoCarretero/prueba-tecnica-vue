@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+/* import { search } from "core-js/fn/symbol"; */
 
 Vue.use(Vuex);
 
@@ -16,6 +17,12 @@ export default new Vuex.Store({
     },
     addFavorite(state, playload) {
       state.favorites.set(playload.idMeal, playload);
+    },
+  },
+  computed: {
+    getUrl() {
+      let urlUser = window.location;
+      console.log(urlUser);
     },
   },
   actions: {

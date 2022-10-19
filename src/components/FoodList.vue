@@ -1,22 +1,26 @@
 <template>
-  <ul v-if="result" class="grid grid-cols-12 gap-5 w-3/4">
+  <ul class="grid grid-cols-3 gap-x-6 gap-y-128 m-auto">
     <li
-      class="border rounded-lg"
-      v-for="(item, index) in foodList"
+      class="border rounded-2xl"
+      v-for="(item, index) in infoToShow"
       :key="index"
     >
-      <section class="h-1/12">
+      <section
+        class="overflow-hidden relative rounded-tl-2xl rounded-tr-2xl max-h-128"
+      >
+        <p class="absolute p-2 m-2 bg-white rounded-3xl">
+          {{ item.strCategory }}
+        </p>
         <img class="w-fit" :src="item.strMealThumb" />
-        <p>{{ item.strCategory }}</p>
       </section>
-      <section class="flex">
-        <h3>{{ item.strMeal }}</h3>
-        <div>
-          <i class="fa-regular fa-eye"></i>
+      <section class="flex justify-between px-5 items-center py-4">
+        <h3 class="text-lg">{{ item.strMeal }}</h3>
+        <div class="flex items-center">
+          <i class="fa-regular fa-eye fa-lg mr-2"></i>
           <i
             v-if="favorites.has(item.idMeal)"
             v-on:click="removeFavorite(item)"
-            class="fa-solid fa-heart"
+            class="fa-solid fa-heart fa-lg"
           ></i>
           <i
             v-else
@@ -34,11 +38,13 @@
 
 export default {
   name: "FoodList",
-  computed: {
-    foodList() {
-      return this.$store.state.foodList;
+  props: {
+    infoToShow: {
+      type: Array,
+      default: () => [],
     },
-
+  },
+  computed: {
     favorites() {
       return this.$store.state.favorites;
     },
