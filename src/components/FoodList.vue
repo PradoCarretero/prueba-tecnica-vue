@@ -27,12 +27,6 @@
             ></i>
             <div v-if="!inFav">
               <i
-                v-if="favorites.has(item.idMeal)"
-                v-on:click="removeFavorite(item)"
-                class="fa-solid fa-heart fa-lg"
-              ></i>
-              <i
-                v-else
                 v-on:click="addFavoriteItem(item)"
                 class="fa-regular fa-heart"
               ></i>
@@ -78,11 +72,16 @@ export default {
   },
 
   methods: {
-    addFavoriteItem(item) {
-      this.$store.commit("addFavorite", item);
-    },
-    removeFavorite(item) {
-      this.$store.state.favorites.delete(item.idMeal);
+    addFavoriteItem(selectedItem) {
+      const newFavList = [...this.$store.state.favorites];
+      const selectedItemId = selectedItem.idMeal;
+      const foundMeal = newFavList.find(
+        (meal) => meal.idMeal === selectedItemId
+      );
+      if (foundMeal == undefined || null) {
+        newFavList.push(selectedItem);
+        this.$store.commit("setFavorites", newFavList);
+      }
     },
 
     showModalOn(item) {
