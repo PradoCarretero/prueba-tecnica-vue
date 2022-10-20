@@ -22,7 +22,7 @@
           <h3 class="text-lg">{{ item.strMeal }}</h3>
           <div class="flex items-center">
             <i
-              v-on:click="showModalOn"
+              v-on:click="showModalOn(item)"
               class="fa-regular fa-eye fa-lg mr-2"
             ></i>
             <div v-if="!inFav">
@@ -56,11 +56,11 @@ export default {
       default: () => [],
     },
   },
-  /*   data() {
+  data() {
     return {
-      showModal: false,
+      idClicked: false,
     };
-  }, */
+  },
   computed: {
     favorites() {
       return this.$store.state.favorites;
