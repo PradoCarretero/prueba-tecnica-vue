@@ -44,7 +44,7 @@ export default new Vuex.Store({
           const string = i.toString();
           console.log(string.includes("strIngredient"));
 
-          if (i.includes("strIngredient") === true) {
+          if (i.includes("strIngredient") == true) {
             number = number + 1;
             console.log(number);
             return number;
