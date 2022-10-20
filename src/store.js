@@ -20,14 +20,6 @@ export default new Vuex.Store({
       state.favorites.set(playload.idMeal, playload);
     },
   },
-  getters: {
-    arrayFavorite(state) {
-      const arrow = state.favorites.map((item) => item.value);
-      console.log("arrow", arrow);
-      state.arrayFavorites = arrow;
-    },
-  },
-
   actions: {
     async getBooks({ commit }, playload) {
       try {

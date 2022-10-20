@@ -13,7 +13,10 @@ export default {
   name: "FavoriteView",
   computed: {
     favoriteList() {
-      return this.$store.state.arrayFavorites;
+      const favoriteListClean = this.$store.state.favorites.map(
+        (item) => item.value
+      );
+      return favoriteListClean;
     },
   },
   components: { FoodList },
