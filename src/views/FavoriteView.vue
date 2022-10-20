@@ -1,5 +1,12 @@
 <template>
-  <main class="mx-96">
+  <main class="mx-96 my-32">
+    <h2
+      class="text-3xl border-b-2 border-black mb-7"
+      v-for="(favCategorie, index) in allFavCategories"
+      :key="index"
+    >
+      {{ favCategorie }}
+    </h2>
     <!-- <FoodList :infoToShow="favoriteList" /> -->
     <FoodList :infoToShow="this.$store.state.foodList" />
   </main>
@@ -18,6 +25,16 @@ export default {
         (item) => item.value
       );
       return favoriteListClean;
+    },
+    allFavCategories() {
+      const data = Array.from(this.$store.state.favorites.values());
+      const result = data.reduce((acc, item) => {
+        if (!acc.includes(item.strCategory)) {
+          acc.push(item.strCategory);
+        }
+        return acc;
+      }, []);
+      return result;
     },
   },
   components: { FoodList },

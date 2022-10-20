@@ -1,5 +1,5 @@
 <template>
-  <ul class="grid grid-cols-3 gap-x-6 gap-y-128 m-auto">
+  <ul class="grid grid-cols-3 gap-x-6 gap-y-128 m-auto mb-32">
     <li
       class="border rounded-2xl"
       v-for="(item, index) in infoToShow"
