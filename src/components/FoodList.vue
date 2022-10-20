@@ -16,7 +16,7 @@
           <p class="absolute md:p-2 m-2 bg-white rounded-3xl">
             {{ item.strCategory }}
           </p>
-          <img class="w-fit" :src="item.strMealThumb" />
+          <img class="w-fit" :src="item.strMealThumb" :alt="item.strMeal" />
         </section>
         <section class="md:flex justify-between px-5 items-center py-4">
           <h3 class="text-lg">{{ item.strMeal }}</h3>
