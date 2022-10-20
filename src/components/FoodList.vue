@@ -13,12 +13,12 @@
         <section
           class="overflow-hidden relative rounded-tl-2xl rounded-tr-2xl max-h-128"
         >
-          <p class="absolute p-2 m-2 bg-white rounded-3xl">
+          <p class="absolute md:p-2 m-2 bg-white rounded-3xl">
             {{ item.strCategory }}
           </p>
           <img class="w-fit" :src="item.strMealThumb" />
         </section>
-        <section class="flex justify-between px-5 items-center py-4">
+        <section class="md:flex justify-between px-5 items-center py-4">
           <h3 class="text-lg">{{ item.strMeal }}</h3>
           <div class="flex items-center">
             <i

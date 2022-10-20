@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-96 my-32">
+  <main class="mx-[25%] my-32">
     <h2
       class="text-3xl border-b-2 border-black mb-7"
       v-for="(favCategorie, index) in allFavCategories"

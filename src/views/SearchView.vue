@@ -1,5 +1,5 @@
 <template>
-  <main class="mx-96">
+  <main class="mx-[25%]">
     <SearchPannel />
     <section v-if="result">
       <FoodList :infoToShow="foodList" />

@@ -2,7 +2,7 @@
   <div
     class="modal-overlay absolute top-0 right-0 bottom-0 left-0 bg-[rgba(255,255,255,0.90)] z-10 flex items-center justify-center"
   >
-    <section class="w-5/12 min-h-[41.6%] bg-white relative p-12">
+    <section class="w-5/12 min-h-[41.6%] bg-white relative md:p-12">
       <i
         v-on:click="showModalOff()"
         class="fa-regular fa-circle-xmark absolute top-0 right-0 m-2"

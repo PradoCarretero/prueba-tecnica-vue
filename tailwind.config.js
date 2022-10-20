@@ -10,6 +10,10 @@ module.exports = {
         128: "268px",
       },
     },
+    screens: {
+      md: "1240px",
+      lg: "1920px",
+    },
   },
   plugins: [],
 };
