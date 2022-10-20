@@ -4,7 +4,7 @@
   >
     <section>
       <router-link to="/">
-        <img src="../assets/logo.png" width="90px" />
+        <img src="../assets/logo.png" width="90px" alt="logo mealflix" />
       </router-link>
     </section>
     <nav>

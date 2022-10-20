@@ -8,9 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     foodList: [],
-    favorites: new Map(),
+    favorites: [],
     result: null,
-    arrayFavorites: [],
     showModal: {
       idRecipe: null,
       window: false,
@@ -21,8 +20,8 @@ export default new Vuex.Store({
     setFoodList(state, playload) {
       state.foodList = playload;
     },
-    addFavorite(state, playload) {
-      state.favorites.set(playload.idMeal, playload);
+    setFavorites(state, playload) {
+      state.favorites = playload;
     },
     setShowModal(state, playload) {
       state.showModal = playload;

@@ -7,8 +7,7 @@
     >
       {{ favCategorie }}
     </h2>
-    <!-- <FoodList :infoToShow="favoriteList" /> -->
-    <FoodList :infoToShow="this.$store.state.foodList" />
+    <FoodList :infoToShow="favoriteList" />
   </main>
 </template>
 
@@ -21,13 +20,10 @@ export default {
   name: "FavoriteView",
   computed: {
     favoriteList() {
-      const favoriteListClean = this.$store.state.favorites.map(
-        (item) => item.value
-      );
-      return favoriteListClean;
+      return this.$store.state.favorites;
     },
     allFavCategories() {
-      const data = Array.from(this.$store.state.favorites.values());
+      const data = Array.from(this.$store.state.favorites);
       const result = data.reduce((acc, item) => {
         if (!acc.includes(item.strCategory)) {
           acc.push(item.strCategory);
