@@ -5,7 +5,7 @@
       v-for="(favCategorie, index) in allFavCategories"
       :key="index"
     >
-      {{ favCategorie }}
+      <div>{{ favCategorie }}</div>
     </h2>
     <FoodList :infoToShow="favoriteList" />
   </main>
@@ -32,6 +32,7 @@ export default {
       }, []);
       return result;
     },
+    matchCategories() {},
   },
   components: { FoodList },
 };

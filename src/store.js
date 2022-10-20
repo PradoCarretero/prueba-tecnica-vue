@@ -40,7 +40,6 @@ export default new Vuex.Store({
             strMeal: item.strMeal,
             strCategory: item.strCategory,
             strMealThumb: item.strMealThumb,
-            isFav: false,
             strInstructions: item.strInstructions,
           };
         });
