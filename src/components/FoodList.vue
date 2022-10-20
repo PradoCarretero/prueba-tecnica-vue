@@ -56,11 +56,6 @@ export default {
       default: () => [],
     },
   },
-  /*   data() {
-    return {
-      idClicked: false,
-    };
-  }, */
   computed: {
     favorites() {
       return this.$store.state.favorites;

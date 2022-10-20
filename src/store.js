@@ -12,9 +12,9 @@ export default new Vuex.Store({
     result: null,
     arrayFavorites: [],
     showModal: {
-      idRecipe: "",
+      idRecipe: null,
       window: false,
-      strInstructions: "",
+      strInstructions: null,
     },
   },
   mutations: {
