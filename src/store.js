@@ -11,6 +11,7 @@ export default new Vuex.Store({
     favorites: new Map(),
     result: null,
     arrayFavorites: [],
+    showModal: false,
   },
   mutations: {
     setFoodList(state, playload) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
     },
     addFavorite(state, playload) {
       state.favorites.set(playload.idMeal, playload);
+    },
+    setShowModal(state, playload) {
+      state.showModal = playload;
     },
   },
   actions: {
