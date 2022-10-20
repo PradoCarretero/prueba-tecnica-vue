@@ -35,6 +35,22 @@ export default new Vuex.Store({
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${playload}`
         );
         this.state.result = true;
+        console.log(response.data.meals);
+        const array = response.data.meals.map((item) => Object.keys(item));
+        console.log("array", array);
+        for (const i of array) {
+          let number = 0;
+          console.log(number);
+          const string = i.toString();
+          console.log(string.includes("strIngredient"));
+
+          if (i.includes("strIngredient") === true) {
+            number = number + 1;
+            return number;
+          }
+          console.log(number);
+        }
+
         const dataClean = response.data.meals.map((item) => {
           return {
             idMeal: item.idMeal,
