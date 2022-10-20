@@ -14,6 +14,7 @@ import FoodList from "../components/FoodList.vue";
 
 export default {
   name: "SearchView",
+
   computed: {
     foodList() {
       return this.$store.state.foodList;
@@ -23,10 +24,5 @@ export default {
     },
   },
   components: { SearchPannel, FoodList },
-  data: function () {
-    return {};
-  },
-
-  methods: {},
 };
 </script>

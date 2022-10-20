@@ -4,7 +4,7 @@
   >
     <section>
       <router-link to="/">
-        <img src="../assets/logo.png" alt="" width="90px" />
+        <img src="../assets/logo.png" width="90px" />
       </router-link>
     </section>
     <nav>
@@ -22,4 +22,3 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>

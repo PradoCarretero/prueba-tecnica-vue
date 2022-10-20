@@ -44,6 +44,12 @@ export default {
       default: () => [],
     },
   },
+  mounted() {
+    console.log("infoToShow", this.infoToShow);
+    console.log("favorites", this.favorites);
+    this.$store.getters.arrayFavorite();
+  },
+
   computed: {
     favorites() {
       return this.$store.state.favorites;
@@ -59,6 +65,7 @@ export default {
 
   methods: {
     addFavoriteItem(item) {
+      console.log(item);
       this.$store.commit("addFavorite", item);
     },
     removeFavorite(item) {

@@ -10,6 +10,7 @@ export default new Vuex.Store({
     foodList: [],
     favorites: new Map(),
     result: null,
+    arrayFavorites: [],
   },
   mutations: {
     setFoodList(state, playload) {
@@ -19,12 +20,14 @@ export default new Vuex.Store({
       state.favorites.set(playload.idMeal, playload);
     },
   },
-  computed: {
-    getUrl() {
-      let urlUser = window.location;
-      console.log(urlUser);
+  getters: {
+    arrayFavorite(state) {
+      const arrow = state.favorites.map((item) => item.value);
+      console.log("arrow", arrow);
+      state.arrayFavorites = arrow;
     },
   },
+
   actions: {
     async getBooks({ commit }, playload) {
       try {

@@ -1,6 +1,6 @@
 <template>
   <main class="mx-96">
-    <FoodList :infoToShow="favorites" />
+    <FoodList :infoToShow="favoriteList" />
   </main>
 </template>
 
@@ -12,8 +12,8 @@ import FoodList from "../components/FoodList.vue";
 export default {
   name: "FavoriteView",
   computed: {
-    favorites() {
-      return this.$store.state.favorites;
+    favoriteList() {
+      return this.$store.state.arrayFavorites;
     },
   },
   components: { FoodList },
