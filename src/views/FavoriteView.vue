@@ -1,6 +1,7 @@
 <template>
   <main class="mx-96">
-    <FoodList :infoToShow="favoriteList" />
+    <!-- <FoodList :infoToShow="favoriteList" /> -->
+    <FoodList :infoToShow="this.$store.state.foodList" />
   </main>
 </template>
 

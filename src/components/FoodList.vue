@@ -17,16 +17,18 @@
         <h3 class="text-lg">{{ item.strMeal }}</h3>
         <div class="flex items-center">
           <i class="fa-regular fa-eye fa-lg mr-2"></i>
-          <i
-            v-if="favorites.has(item.idMeal)"
-            v-on:click="removeFavorite(item)"
-            class="fa-solid fa-heart fa-lg"
-          ></i>
-          <i
-            v-else
-            v-on:click="addFavoriteItem(item)"
-            class="fa-regular fa-heart"
-          ></i>
+          <div v-if="!inFav">
+            <i
+              v-if="favorites.has(item.idMeal)"
+              v-on:click="removeFavorite(item)"
+              class="fa-solid fa-heart fa-lg"
+            ></i>
+            <i
+              v-else
+              v-on:click="addFavoriteItem(item)"
+              class="fa-regular fa-heart"
+            ></i>
+          </div>
         </div>
       </section>
     </li>
@@ -44,12 +46,23 @@ export default {
       default: () => [],
     },
   },
+
   computed: {
     favorites() {
       return this.$store.state.favorites;
     },
     result() {
       return this.$store.state.result;
+    },
+
+    inFav() {
+      const urlActive = window.location.href;
+      const urlFav = "http://localhost:8080/favoritos";
+      let inFav = false;
+      if (urlActive === urlFav) {
+        inFav = true;
+      }
+      return inFav;
     },
   },
   methods: {
