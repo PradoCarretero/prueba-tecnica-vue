@@ -11,7 +11,11 @@ export default new Vuex.Store({
     favorites: new Map(),
     result: null,
     arrayFavorites: [],
-    showModal: false,
+    showModal: {
+      idRecipe: "",
+      window: false,
+      strInstructions: "",
+    },
   },
   mutations: {
     setFoodList(state, playload) {
@@ -38,6 +42,7 @@ export default new Vuex.Store({
             strCategory: item.strCategory,
             strMealThumb: item.strMealThumb,
             isFav: false,
+            strInstructions: item.strInstructions,
           };
         });
         commit("setFoodList", dataClean);

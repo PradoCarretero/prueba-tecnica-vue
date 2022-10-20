@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="recipe">
-      <RecipeWindow v-if="showModal" />
+      <RecipeWindow v-if="showModal.window" />
     </transition>
 
     <ul class="grid grid-cols-3 gap-x-6 gap-y-128 m-auto mb-32">
@@ -56,11 +56,11 @@ export default {
       default: () => [],
     },
   },
-  data() {
+  /*   data() {
     return {
       idClicked: false,
     };
-  },
+  }, */
   computed: {
     favorites() {
       return this.$store.state.favorites;
@@ -90,8 +90,12 @@ export default {
       this.$store.state.favorites.delete(item.idMeal);
     },
 
-    showModalOn() {
-      this.$store.commit("setShowModal", true);
+    showModalOn(item) {
+      this.$store.commit("setShowModal", {
+        idRecipe: item.idMeal,
+        window: true,
+        strInstructions: item.strInstructions,
+      });
     },
   },
   components: { RecipeWindow },
